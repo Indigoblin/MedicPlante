@@ -1,4 +1,4 @@
-package sample;
+package Sample;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.io.*;
  */
 
 public class BDDManager {
-    private final String BDD_URL = "jdbc:mysql://localhost:3306/BDD_MedicPlante";
+    private final String BDD_URL = "jdbc:mysql://localhost:3306";
     private final String BDD_USER = "root";
     private final String BDD_PASSWORD =  "";
     private Connection connection;
@@ -57,7 +57,7 @@ public class BDDManager {
      */
     public void edit(String requete)
     {
-        System.out.println(requete);
+        //System.out.println(requete);
         try
         {
             statement.executeUpdate(requete);
@@ -76,7 +76,7 @@ public class BDDManager {
      */
     public ArrayList<ArrayList<String>> ask(String requete)
     {
-        System.out.println(requete);
+        //System.out.println(requete);
         ArrayList<ArrayList<String>> select = new ArrayList<>();
 
         try
@@ -167,8 +167,7 @@ public class BDDManager {
     {
         BDDManager bdd = new BDDManager();
         bdd.start();
-        //bdd.lire("src/BDD_MedicPlante.sql");
-        bdd.lire("src/sample/BDD_MedicPlante.sql");
+        bdd.lire("src/Sample/BDD_MedicPlante.sql");
         bdd.stop();
 
     }
