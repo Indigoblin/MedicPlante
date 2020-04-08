@@ -2,16 +2,18 @@ package Model;
 
 public class Corps {
 
-    private int idPlante;
-    private String nomPartie;
+    private int idPartieCorp;
+    private String nomPartieCorp;
     private int posX;
     private int posY;
+    private int width;
+    private int height;
 
 
 
-    public Corps(int idPlante, String nom, int posX, int posY) {
-        this.idPlante = idPlante;
-        this.nomPartie = nomPartie;
+    public Corps(int idPartieCorp, String nom, int posX, int posY,int width, int height) {
+        this.idPartieCorp = idPartieCorp;
+        this.nomPartieCorp = nomPartieCorp;
         this.posX = posX;
         this.posY = posY;
 
