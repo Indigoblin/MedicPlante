@@ -30,7 +30,7 @@ public class boxPlante {
         imagePlante.setFitHeight(60);
         imagePlante.setPreserveRatio(true);
 
-///////////HboxTitre........................................................................
+//..HboxTitre........................................................................
         HBox hboxTitre = new HBox();
 
         Label titre = new Label("Nom :");
@@ -39,7 +39,7 @@ public class boxPlante {
         Label nomPlante = new Label( /*plante.getNomPlante()*/ );
 
         hboxTitre.getChildren().addAll(titre, nomPlante);
-///////////VboxDescription...................................................................
+//..VboxDescription...................................................................
         VBox vboxDescription = new VBox();
 
         Label titreDescription= new Label("Description :");
