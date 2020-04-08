@@ -11,7 +11,7 @@ public class Corps {
 
 
 
-    public Corps(int idPartieCorp, String nom, int posX, int posY,int width, int height) {
+    public Corps(int idPartieCorp, String nomPartieCorp, int posX, int posY,int width, int height) {
         this.idPartieCorp = idPartieCorp;
         this.nomPartieCorp = nomPartieCorp;
         this.posX = posX;
