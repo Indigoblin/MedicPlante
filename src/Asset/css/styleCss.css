@@ -1,0 +1,16 @@
+.button {
+    -fx-background-color: linear-gradient(to right, #6374a2 0%, #071d58 51%, #6374a2 100%);
+    -fx-pref-width: 200px;
+    -fx-pref-height: 50px;
+    -fx-font-family: "Arial Black";
+    -fx-background-radius: 8;
+    -fx-text-fill: white;
+    -fx-border-color: black;
+    -fx-border-radius: 8;
+    -fx-border-width: 2;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to right, #071d58 0%, #6374a2 51%, #071d58 100%);
+    -fx-cursor: hand;
+}
