@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.image.ImageView;
 import javafx.stage.Screen;
-import sample.BDDManager;
+import Sample.BDDManager;
 
 
 

@@ -11,7 +11,7 @@ import javafx.scene.text.Font;
 
 import static javafx.scene.text.FontWeight.BOLD;
 
-public class boxPlante {
+public class BoxPlante {
 
     private int height = 200;
     private Plante plante;
@@ -19,13 +19,13 @@ public class boxPlante {
     private VBox vboxText;
     private Font police;
 
-    public boxPlante(Plante plante) {
+    public BoxPlante(Plante plante) {
         this.plante = plante;
 
         hboxContainer = new HBox();
 
-//////////////////////////////////////////////////////////////////////////////////////////
-//..Image.............................................................................
+/////////////////////////////////////////////////////////////////////////////////////
+//..Image............................................................................
         ImageView imagePlante = new ImageView(/*plante.getPhotoPlante*/);
         imagePlante.setFitHeight(60);
         imagePlante.setPreserveRatio(true);
@@ -47,18 +47,16 @@ public class boxPlante {
 
         Label description = new Label(/*plante.getDescriptionPlante*/);
 
+
         vboxDescription.getChildren().addAll(titreDescription, description);
 
 
-//..VboxTitre+Description.................................................................
+//..VboxTitre+Description..............................................................
 
         VBox vBoxTitreDescription = new VBox();
         vBoxTitreDescription.getChildren().addAll(hboxTitre, vboxDescription);
 
-
-
-
-///////Final//////////////////////////////////////////////////////////////////////////////////////
+///////Final///////////////////////////////////////////////////////////////////////////
 
 
         hboxContainer.getChildren().addAll(imagePlante, vBoxTitreDescription);
