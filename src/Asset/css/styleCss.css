@@ -1,4 +1,4 @@
-.button {
+.btnMenu {
     -fx-background-color: linear-gradient(to right, #6374a2 0%, #071d58 51%, #6374a2 100%);
     -fx-pref-width: 200px;
     -fx-pref-height: 50px;
@@ -10,7 +10,7 @@
     -fx-border-width: 2;
 }
 
-.button:hover {
+.btnMenu:hover {
     -fx-background-color: linear-gradient(to right, #071d58 0%, #6374a2 51%, #071d58 100%);
     -fx-cursor: hand;
 }
