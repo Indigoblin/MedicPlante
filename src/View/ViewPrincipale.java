@@ -10,9 +10,9 @@ import javafx.stage.Screen;
 import Sample.BDDManager;
 
 
-
 public class ViewPrincipale {
 
+    private final Rectangle2D primaryScreenBounds;
     private Menu model;
     private javafx.scene.control.Button btnPageAdmin;
     private javafx.scene.control.Button btnQuitter;
@@ -20,17 +20,21 @@ public class ViewPrincipale {
     private ImageView imgBG;
     private ImageView Logo;
     private BDDManager bdd;
+    private ImageView corps;
 
     ViewPrincipale(Menu model, Group root) {
 
         this.root = root;
         this.model = model;
+        primaryScreenBounds = Screen.getPrimary().getBounds();
         initBackground();
         initLogo();
+        initCorps();
 
-        Rectangle2D primaryScreenBounds = Screen.getPrimary().getBounds(); // RÃ©cupÃ©ration de la taille de l'Ã©cran
-        double posX = (primaryScreenBounds.getWidth() * 5) / 100;
-        double posY = (primaryScreenBounds.getHeight() * 20) / 100;
+
+       // RÃ©cupÃ©ration de la taille de l'Ã©cran
+        double posX = (primaryScreenBounds.getWidth() * 85) / 100;
+        double posY = (primaryScreenBounds.getHeight() * 80) / 100;
 
         btnPageAdmin = initButton(posX, posY - 50, "Admin");
         btnQuitter = initButton(posX, posY + 20, "Quitter");
@@ -52,7 +56,7 @@ public class ViewPrincipale {
 
 
     private void initBackground() {
-        imgBG = new javafx.scene.image.ImageView("Asset/Images/fondBg.png");
+        imgBG = new javafx.scene.image.ImageView("Asset/Images/background.jpg");
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getBounds(); // Récupération de la taille de l'écran
         imgBG.setFitHeight((int) primaryScreenBounds.getHeight());
         imgBG.setFitWidth((int) primaryScreenBounds.getWidth());
@@ -64,12 +68,28 @@ public class ViewPrincipale {
         Logo.setX(100);
     }
 
+    private void initCorps() {
+        corps = new ImageView("Asset/Images/corps.png");
+
+        double posXBody = (primaryScreenBounds.getWidth() * 45) / 100;
+        double posYBody = (primaryScreenBounds.getHeight() * 5) / 100;
+        double heightBody = (primaryScreenBounds.getHeight() * 90) / 100;
+
+
+        corps.setX(posXBody);
+        corps.setY(posYBody);
+        corps.setFitHeight(heightBody);
+        corps.setPreserveRatio(true);
+
+    }
+
     void setVueCompleteMenu() {
         root.getChildren().clear();
         root.getChildren().add(imgBG);
         root.getChildren().add(Logo);
         root.getChildren().add(btnPageAdmin);
         root.getChildren().add(btnQuitter);
+        root.getChildren().add(corps);
     }
 
     void setEvents(ControllerMenu mc) {
