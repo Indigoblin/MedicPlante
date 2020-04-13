@@ -13,7 +13,6 @@ import javafx.stage.Screen;
 import Sample.BDDManager;
 
 
-
 public class ViewPrincipale {
 
     private final Rectangle2D primaryScreenBounds;
@@ -26,6 +25,7 @@ public class ViewPrincipale {
     private BDDManager bdd;
     private ImageView corps;
     private VBox boxLeft;
+    private Button btnTete, btnTorse, btnVentre, btnMain, btnCoude, btnNuque, btnSex, btnPied, btnPeau;
 
 
     ViewPrincipale(Menu model, Group root) {
@@ -38,12 +38,12 @@ public class ViewPrincipale {
         initBoxLeft();
 
 
-       // RÃ©cupÃ©ration de la taille de l'Ã©cran
+        // RÃ©cupÃ©ration de la taille de l'Ã©cran
         double posX = (primaryScreenBounds.getWidth() * 85) / 100;
         double posY = (primaryScreenBounds.getHeight() * 80) / 100;
 
-        btnPageAdmin = initButton(posX, posY - 50, "Admin");
-        btnQuitter = initButton(posX, posY + 20, "Quitter");
+        btnPageAdmin = initButton(posX, posY, "Admin");
+        btnQuitter = initButton(posX, posY + 70, "Quitter");
 
         setVueCompleteMenu();
     }
@@ -56,7 +56,7 @@ public class ViewPrincipale {
         b.setText(textBtn);
         b.setLayoutX(posX);
         b.setLayoutY(posY);
-
+        b.getStyleClass().add("btnMenu");
         return b;
     }
 
@@ -78,7 +78,7 @@ public class ViewPrincipale {
         corps = new ImageView("Asset/Images/corps.png");
 
         double posXBody = (primaryScreenBounds.getWidth() * 45) / 100;
-        double posYBody = (primaryScreenBounds.getHeight() * 5) / 100;
+        double posYBody = (primaryScreenBounds.getHeight() * 8) / 100;
         double heightBody = (primaryScreenBounds.getHeight() * 90) / 100;
 
 
@@ -87,9 +87,170 @@ public class ViewPrincipale {
         corps.setFitHeight(heightBody);
         corps.setPreserveRatio(true);
 
+
+        btnTete = new Button();// Création d'un bouton
+
+        double posX = (primaryScreenBounds.getWidth() * 54.4) / 100;
+        double posY = (primaryScreenBounds.getHeight() * 15) / 100;
+        double height = (primaryScreenBounds.getHeight() * 12) / 100;
+        double width = height;
+
+
+        btnTete.setLayoutX(posX);
+        btnTete.setLayoutY(posY);
+        btnTete.setPrefWidth(width);
+        btnTete.setPrefHeight(height);
+        btnTete.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
+        btnTete.getStyleClass().add("btnCorps");
+        btnTete.setOpacity(0.5);
+
+//.................................................................
+
+        btnTorse = new Button();// Création d'un bouton
+
+        posX = (primaryScreenBounds.getWidth() * 54.2) / 100;
+        posY = (primaryScreenBounds.getHeight() * 26) / 100;
+        height = (primaryScreenBounds.getHeight() * 13) / 100;
+        width = height;
+
+
+        btnTorse.setLayoutX(posX);
+        btnTorse.setLayoutY(posY);
+        btnTorse.setPrefWidth(width);
+        btnTorse.setPrefHeight(height);
+        btnTorse.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
+        btnTorse.getStyleClass().add("btnCorps");
+        btnTorse.setOpacity(0.5);
+
+        //.................................................................
+
+        btnVentre = new Button();// Création d'un bouton
+
+        posX = (primaryScreenBounds.getWidth() * 54.2) / 100;
+        posY = (primaryScreenBounds.getHeight() * 36) / 100;
+        height = (primaryScreenBounds.getHeight() * 13) / 100;
+        width = height;
+
+
+        btnVentre.setLayoutX(posX);
+        btnVentre.setLayoutY(posY);
+        btnVentre.setPrefWidth(width);
+        btnVentre.setPrefHeight(height);
+        btnVentre.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
+        btnVentre.getStyleClass().add("btnCorps");
+        btnVentre.setOpacity(0.5);
+
+        //.................................................................
+
+        btnMain = new Button();// Création d'un bouton
+
+        posX = (primaryScreenBounds.getWidth() * 46.8) / 100;
+        posY = (primaryScreenBounds.getHeight() * 50) / 100;
+        height = (primaryScreenBounds.getHeight() * 9) / 100;
+        width = height;
+
+
+        btnMain.setLayoutX(posX);
+        btnMain.setLayoutY(posY);
+        btnMain.setPrefWidth(width);
+        btnMain.setPrefHeight(height);
+        btnMain.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
+        btnMain.getStyleClass().add("btnCorps");
+        btnMain.setOpacity(0.5);
+
+        //.................................................................
+
+        btnCoude = new Button();// Création d'un bouton
+
+        posX = (primaryScreenBounds.getWidth() * 50) / 100;
+        posY = (primaryScreenBounds.getHeight() * 38) / 100;
+        height = (primaryScreenBounds.getHeight() * 7) / 100;
+        width = height;
+
+
+        btnCoude.setLayoutX(posX);
+        btnCoude.setLayoutY(posY);
+        btnCoude.setPrefWidth(width);
+        btnCoude.setPrefHeight(height);
+        btnCoude.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
+        btnCoude.getStyleClass().add("btnCorps");
+        btnCoude.setOpacity(0.5);
+
+        //.................................................................
+
+        btnNuque = new Button();// Création d'un bouton
+
+        posX = (primaryScreenBounds.getWidth() * 56.2) / 100;
+        posY = (primaryScreenBounds.getHeight() * 24) / 100;
+        height = (primaryScreenBounds.getHeight() * 6) / 100;
+        width = height;
+
+
+        btnNuque.setLayoutX(posX);
+        btnNuque.setLayoutY(posY);
+        btnNuque.setPrefWidth(width);
+        btnNuque.setPrefHeight(height);
+        btnNuque.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
+        btnNuque.getStyleClass().add("btnCorps");
+        btnNuque.setOpacity(0.5);
+
+        //.................................................................
+
+        btnSex = new Button();// Création d'un bouton
+
+        posX = (primaryScreenBounds.getWidth() * 55.2) / 100;
+        posY = (primaryScreenBounds.getHeight() * 48) / 100;
+        height = (primaryScreenBounds.getHeight() * 9) / 100;
+        width = height;
+
+
+        btnSex.setLayoutX(posX);
+        btnSex.setLayoutY(posY);
+        btnSex.setPrefWidth(width);
+        btnSex.setPrefHeight(height);
+        btnSex.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
+        btnSex.getStyleClass().add("btnCorps");
+        btnSex.setOpacity(0.5);
+
+        //.................................................................
+
+        btnPied = new Button();// Création d'un bouton
+
+        posX = (primaryScreenBounds.getWidth() * 52.7) / 100;
+        posY = (primaryScreenBounds.getHeight() * 84) / 100;
+        height = (primaryScreenBounds.getHeight() * 9) / 100;
+        width = height;
+
+
+        btnPied.setLayoutX(posX);
+        btnPied.setLayoutY(posY);
+        btnPied.setPrefWidth(width);
+        btnPied.setPrefHeight(height);
+        btnPied.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
+        btnPied.getStyleClass().add("btnCorps");
+        btnPied.setOpacity(0.5);
+
+        //.................................................................
+
+        btnPeau = new Button();// Création d'un bouton
+
+        posX = (primaryScreenBounds.getWidth() * 67.2) / 100;
+        posY = (primaryScreenBounds.getHeight() * 16) / 100;
+        height = (primaryScreenBounds.getHeight() * 13) / 100;
+        width = height;
+
+
+        btnPeau.setLayoutX(posX);
+        btnPeau.setLayoutY(posY);
+        btnPeau.setPrefWidth(width);
+        btnPeau.setPrefHeight(height);
+        btnPeau.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
+        btnPeau.getStyleClass().add("btnCorps");
+        btnPeau.setOpacity(0.5);
+
     }
 
-    private void initBoxLeft(){
+    private void initBoxLeft() {
         boxLeft = new VBox();
 
         double posXBoxLeft = (primaryScreenBounds.getWidth() * 2.5) / 100;
@@ -113,6 +274,22 @@ public class ViewPrincipale {
         root.getChildren().add(btnPageAdmin);
         root.getChildren().add(btnQuitter);
         root.getChildren().add(corps);
+        root.getChildren().add(btnTete);
+        root.getChildren().add(btnTorse);
+        root.getChildren().add(btnVentre);
+        root.getChildren().add(btnMain);
+        root.getChildren().add(btnCoude);
+        root.getChildren().add(btnNuque);
+        root.getChildren().add(btnSex);
+        root.getChildren().add(btnPied);
+        root.getChildren().add(btnPeau);
+
+
+
+
+
+
+
         root.getChildren().add(boxLeft);
     }
 
