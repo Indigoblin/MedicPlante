@@ -29,6 +29,7 @@ public class ViewPrincipale {
     private VBox boxLeft;
     private Button btnTete, btnTorse, btnVentre, btnMain, btnCoude, btnNuque, btnSex, btnPied, btnPeau;
     private ChoiceBox<String> choiceBox;
+    private Label labelChoice;
 
 
     ViewPrincipale(Menu model, Group root) {
@@ -272,6 +273,8 @@ public class ViewPrincipale {
 
 
         boxLeft.getChildren().add(Logo);
+        boxLeft.getChildren().add(labelChoice);
+
         boxLeft.getChildren().add(choiceBox);
 
     }
@@ -288,7 +291,10 @@ public class ViewPrincipale {
         String note5 = "5";
 
 
-        Label label = new Label("Note du film :");
+        labelChoice = new Label("Veuillez cocher vos symptômes :");
+        labelChoice.setTranslateX(20);
+        labelChoice.setTranslateY(20);
+
 
         ObservableList<String> listeNote //
                 = FXCollections.observableArrayList(note1, note2, note3, note4, note5);
@@ -296,17 +302,19 @@ public class ViewPrincipale {
         choiceBox = new ChoiceBox<String>(listeNote);
 
 
-        Bounds bounds = choiceBox.getLayoutBounds();
+        // Rectangle2D bounds = choiceBox.getBoundsInParent();
+
+      /*  Bounds bounds = boxLeft.sceneToLocal(choiceBox.localToScene(choiceBox.getBoundsInLocal()));
 
         double posX = (bounds.getWidth() * 54.4) / 100;
         double posY = (bounds.getHeight() * 15) / 100;
         double height = (bounds.getHeight() * 12) / 100;
         double width = (bounds.getWidth() * 40) / 100;
+*/
 
-
-        choiceBox.setTranslateX(posX);
-        choiceBox.setTranslateX(posY);
-        choiceBox.setPrefWidth(width);
+        choiceBox.setTranslateX(100);
+        choiceBox.setTranslateY(30);
+        choiceBox.setPrefWidth(200);
 
     }
 
