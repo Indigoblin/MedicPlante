@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Screen;
 import Sample.BDDManager;
 import javafx.util.Duration;
@@ -49,7 +50,7 @@ public class ViewPrincipale {
         double posY = (primaryScreenBounds.getHeight() * 80) / 100;
 
         btnPageAdmin = initButton(posX, posY, "Admin");
-        btnQuitter = initButton(posX, posY + 70, "Quitter");
+        btnQuitter = initButton(posX, posY + 50, "Quitter");
 
         setVueCompleteMenu();
     }
@@ -76,8 +77,11 @@ public class ViewPrincipale {
 
     private void initLogo() {
         Logo = new javafx.scene.image.ImageView("Asset/Images/Logo_Medic.png");
-        Logo.setY(100);
-        Logo.setX(100);
+
+        Logo.setTranslateX(20);
+        Logo.setFitHeight(250);
+        Logo.setPreserveRatio(true);
+        Logo.setOpacity(0.8);
     }
 
     private void initCorps() {
@@ -386,10 +390,22 @@ public class ViewPrincipale {
         initChoiceBox();
 
 
+        Button Valider = new Button();// Création d'un bouton
+
+        Valider.setText("Valider");
+        Valider.setTranslateX(200);
+        Valider.setTranslateY(120);
+
+        Valider.getStyleClass().add("btnMenu");
+
+
+
         boxLeft.getChildren().add(Logo);
         boxLeft.getChildren().add(labelChoice);
 
         boxLeft.getChildren().add(choiceBox);
+        boxLeft.getChildren().add(Valider);
+
 
     }
 
@@ -407,7 +423,11 @@ public class ViewPrincipale {
 
         labelChoice = new Label("Veuillez cocher vos symptômes :");
         labelChoice.setTranslateX(20);
-        labelChoice.setTranslateY(20);
+        labelChoice.setTranslateY(40);
+        labelChoice.setMinWidth(100);
+
+        final double MAX_FONT_SIZE = 25; // define max font size you need
+        labelChoice.setFont(new Font(MAX_FONT_SIZE));
 
 
         ObservableList<String> listeNote //
@@ -427,7 +447,7 @@ public class ViewPrincipale {
 */
 
         choiceBox.setTranslateX(100);
-        choiceBox.setTranslateY(30);
+        choiceBox.setTranslateY(70);
         choiceBox.setPrefWidth(200);
 
     }
