@@ -3,8 +3,6 @@ package View;
 import Controller.ControllerMenu;
 import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.geometry.Bounds;
 import javafx.geometry.Insets;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
@@ -16,6 +14,8 @@ import javafx.scene.text.Font;
 import javafx.stage.Screen;
 import Sample.BDDManager;
 import javafx.util.Duration;
+
+import java.util.ArrayList;
 
 
 public class ViewPrincipale {
@@ -31,8 +31,9 @@ public class ViewPrincipale {
     private ImageView corps;
     private VBox boxLeft;
     private Button btnTete, btnTorse, btnVentre, btnMain, btnCoude, btnNuque, btnSex, btnPied, btnPeau;
-    private ChoiceBox<String> choiceBox;
+    private ComboBox<String> choiceBox;
     private Label labelChoice;
+    private Button Valider;
 
 
     ViewPrincipale(Menu model, Group root) {
@@ -79,7 +80,9 @@ public class ViewPrincipale {
         Logo = new javafx.scene.image.ImageView("Asset/Images/Logo_Medic.png");
 
         Logo.setTranslateX(20);
-        Logo.setFitHeight(250);
+        Logo.setTranslateY(20);
+
+        Logo.setFitHeight(80);
         Logo.setPreserveRatio(true);
         Logo.setOpacity(0.8);
     }
@@ -152,7 +155,7 @@ public class ViewPrincipale {
         btnTorse.setLayoutY(posY);
         btnTorse.setPrefWidth(width);
         btnTorse.setPrefHeight(height);
-        btnTorse.setBackground(new Background(new BackgroundFill(Color.GREEN, new CornerRadii(90), Insets.EMPTY)));
+        btnTorse.setBackground(new Background(new BackgroundFill(Color.RED, new CornerRadii(90), Insets.EMPTY)));
         btnTorse.getStyleClass().add("btnCorps");
         btnTorse.setOpacity(0);
 
@@ -181,7 +184,7 @@ public class ViewPrincipale {
         btnVentre.setLayoutY(posY);
         btnVentre.setPrefWidth(width);
         btnVentre.setPrefHeight(height);
-        btnVentre.setBackground(new Background(new BackgroundFill(Color.BLUE, new CornerRadii(90), Insets.EMPTY)));
+        btnVentre.setBackground(new Background(new BackgroundFill(Color.RED, new CornerRadii(90), Insets.EMPTY)));
         btnVentre.getStyleClass().add("btnCorps");
         btnVentre.setOpacity(0);
 
@@ -210,7 +213,7 @@ public class ViewPrincipale {
         btnMain.setLayoutY(posY);
         btnMain.setPrefWidth(width);
         btnMain.setPrefHeight(height);
-        btnMain.setBackground(new Background(new BackgroundFill(Color.YELLOW, new CornerRadii(90), Insets.EMPTY)));
+        btnMain.setBackground(new Background(new BackgroundFill(Color.RED, new CornerRadii(90), Insets.EMPTY)));
         btnMain.getStyleClass().add("btnCorps");
         btnMain.setOpacity(0);
 
@@ -239,7 +242,7 @@ public class ViewPrincipale {
         btnCoude.setLayoutY(posY);
         btnCoude.setPrefWidth(width);
         btnCoude.setPrefHeight(height);
-        btnCoude.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
+        btnCoude.setBackground(new Background(new BackgroundFill(Color.RED, new CornerRadii(90), Insets.EMPTY)));
         btnCoude.getStyleClass().add("btnCorps");
         btnCoude.setOpacity(0);
 
@@ -297,7 +300,7 @@ public class ViewPrincipale {
         btnSex.setLayoutY(posY);
         btnSex.setPrefWidth(width);
         btnSex.setPrefHeight(height);
-        btnSex.setBackground(new Background(new BackgroundFill(Color.PINK, new CornerRadii(90), Insets.EMPTY)));
+        btnSex.setBackground(new Background(new BackgroundFill(Color.RED, new CornerRadii(90), Insets.EMPTY)));
         btnSex.getStyleClass().add("btnCorps");
         btnSex.setOpacity(0);
 
@@ -326,7 +329,7 @@ public class ViewPrincipale {
         btnPied.setLayoutY(posY);
         btnPied.setPrefWidth(width);
         btnPied.setPrefHeight(height);
-        btnPied.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
+        btnPied.setBackground(new Background(new BackgroundFill(Color.RED, new CornerRadii(90), Insets.EMPTY)));
         btnPied.getStyleClass().add("btnCorps");
         btnPied.setOpacity(0);
 
@@ -355,7 +358,7 @@ public class ViewPrincipale {
         btnPeau.setLayoutY(posY);
         btnPeau.setPrefWidth(width);
         btnPeau.setPrefHeight(height);
-        btnPeau.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
+        btnPeau.setBackground(new Background(new BackgroundFill(Color.RED, new CornerRadii(90), Insets.EMPTY)));
         btnPeau.getStyleClass().add("btnCorps");
         btnPeau.setOpacity(0);
 
@@ -383,45 +386,14 @@ public class ViewPrincipale {
         boxLeft.setPrefWidth(widthBoxLeft);
         boxLeft.setLayoutX(posXBoxLeft);
         boxLeft.setLayoutY(posYBoxLeft);
-        boxLeft.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(20), Insets.EMPTY)));
-
-        initLogo();
-
-        initChoiceBox();
-
-
-        Button Valider = new Button();// Création d'un bouton
-
-        Valider.setText("Valider");
-        Valider.setTranslateX(200);
-        Valider.setTranslateY(120);
-
-        Valider.getStyleClass().add("btnMenu");
-
-
-
-        boxLeft.getChildren().add(Logo);
-        boxLeft.getChildren().add(labelChoice);
-
-        boxLeft.getChildren().add(choiceBox);
-        boxLeft.getChildren().add(Valider);
-
-
-    }
-
-    private void initChoiceBox() {
-
-        //  choiceboxSymptome = new TextField("");
-        // choiceboxSymptome.setMinWidth(120);
-
-        String note1 = "1";
-        String note2 = "2";
-        String note3 = "3";
-        String note4 = "4";
-        String note5 = "5";
-
-
-        labelChoice = new Label("Veuillez cocher vos symptômes :");
+       boxLeft.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(20), Insets.EMPTY)));
+     /*   boxLeft.setBackground(new Background(new BackgroundImage(new Image("Asset/Images/Logo_Medic.png", 500, 500, true, true),
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.CENTER,
+                BackgroundSize.DEFAULT)));
+*/
+        labelChoice = new Label("Veuillez selectionner \n une partie du corps ->");
         labelChoice.setTranslateX(20);
         labelChoice.setTranslateY(40);
         labelChoice.setMinWidth(100);
@@ -429,11 +401,52 @@ public class ViewPrincipale {
         final double MAX_FONT_SIZE = 25; // define max font size you need
         labelChoice.setFont(new Font(MAX_FONT_SIZE));
 
+        initLogo();
 
-        ObservableList<String> listeNote //
-                = FXCollections.observableArrayList(note1, note2, note3, note4, note5);
 
-        choiceBox = new ChoiceBox<String>(listeNote);
+
+        Valider = new Button();// Création d'un bouton
+
+        Valider.setText("Valider");
+        Valider.setTranslateX(260);
+        Valider.setTranslateY(40);
+
+        Valider.getStyleClass().add("btnMenu");
+
+
+        boxLeft.getChildren().add(Logo);
+
+        boxLeft.getChildren().add(labelChoice);
+
+
+
+    }
+
+    public void afficheSelect(ArrayList<ArrayList<String>> listSymptome){
+        initChoiceBox(listSymptome);
+        boxLeft.getChildren().remove(choiceBox);
+        boxLeft.getChildren().remove(Valider);
+
+        boxLeft.getChildren().add(choiceBox);
+        boxLeft.getChildren().add(Valider);
+
+        labelChoice.setText("Veuillez cocher vos symptômes :");
+    }
+
+
+
+    private void initChoiceBox(ArrayList<ArrayList<String>> listSymptome) {
+
+        ArrayList<String> symptome = new ArrayList<>();
+
+
+        for (int i = 0; i < listSymptome.size(); i++) {
+        String symp = listSymptome.get(i).get(1);
+        symptome.add(symp);
+        }
+
+
+        choiceBox = new ComboBox(FXCollections.observableArrayList(symptome));
 
 
         // Rectangle2D bounds = choiceBox.getBoundsInParent();
@@ -446,7 +459,7 @@ public class ViewPrincipale {
         double width = (bounds.getWidth() * 40) / 100;
 */
 
-        choiceBox.setTranslateX(100);
+        choiceBox.setTranslateX(20);
         choiceBox.setTranslateY(70);
         choiceBox.setPrefWidth(200);
 
@@ -493,5 +506,41 @@ public class ViewPrincipale {
 
     public Button getPageAdmin() {
         return btnPageAdmin;
+    }
+
+    public Button getBtnTete() {
+        return btnTete;
+    }
+
+    public Button getBtnTorse() {
+        return btnTorse;
+    }
+
+    public Button getBtnVentre() {
+        return btnVentre;
+    }
+
+    public Button getBtnMain() {
+        return btnMain;
+    }
+
+    public Button getBtnCoude() {
+        return btnCoude;
+    }
+
+    public Button getBtnNuque() {
+        return btnNuque;
+    }
+
+    public Button getBtnSex() {
+        return btnSex;
+    }
+
+    public Button getBtnPied() {
+        return btnPied;
+    }
+
+    public Button getBtnPeau() {
+        return btnPeau;
     }
 }
