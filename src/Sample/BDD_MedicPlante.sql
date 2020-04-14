@@ -3,7 +3,7 @@ CREATE DATABASE bdd_medicplant;
 
 CREATE TABLE bdd_medicplant.Plante
 (
-                       idPlante      Int NOT NULL PRIMARY KEY,
+                       idPlante      Int Auto_increment NOT NULL PRIMARY KEY,
                        Nom           Varchar (250) NOT NULL ,
                        Description   Varchar (250) NOT NULL ,
                        Bienfait      Text NOT NULL ,
@@ -14,19 +14,19 @@ CREATE TABLE bdd_medicplant.Plante
 
 
 CREATE TABLE bdd_medicplant.Symptome(
-                         idSymptome  Int NOT NULL PRIMARY KEY,
+                         idSymptome  Int Auto_increment NOT NULL PRIMARY KEY,
                          nomSymptome Varchar (250) NOT NULL
 );
 
 
 CREATE TABLE bdd_medicplant.Corps(
-                      idCorps   Int NOT NULL PRIMARY KEY,
+                      idCorps   Int Auto_increment NOT NULL PRIMARY KEY,
                       NomPartie Varchar (250) NOT NULL
 );
 
 
 CREATE TABLE bdd_medicplant.MotClef(
-                        idMotClef  Int NOT NULL PRIMARY KEY,
+                        idMotClef  Int Auto_increment NOT NULL PRIMARY KEY,
                         nomMotClef Varchar (250) NOT NULL
 );
 
