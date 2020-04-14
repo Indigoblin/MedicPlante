@@ -34,6 +34,7 @@ public class ViewPrincipale {
     private ComboBox<String> choiceBox;
     private Label labelChoice;
     private Button Valider;
+    private ScrollPane scrollPane;
 
 
     ViewPrincipale(Menu model, Group root) {
@@ -403,6 +404,8 @@ public class ViewPrincipale {
 
         initLogo();
 
+        initScrollPane();
+
 
 
         Valider = new Button();// Création d'un bouton
@@ -418,19 +421,24 @@ public class ViewPrincipale {
 
         boxLeft.getChildren().add(labelChoice);
 
-
-
     }
 
     public void afficheSelect(ArrayList<ArrayList<String>> listSymptome){
+
+
+
         initChoiceBox(listSymptome);
         boxLeft.getChildren().remove(choiceBox);
         boxLeft.getChildren().remove(Valider);
+        boxLeft.getChildren().remove(scrollPane);
 
         boxLeft.getChildren().add(choiceBox);
         boxLeft.getChildren().add(Valider);
+        boxLeft.getChildren().add(scrollPane);
 
         labelChoice.setText("Veuillez cocher vos symptômes :");
+
+
     }
 
 
@@ -439,13 +447,12 @@ public class ViewPrincipale {
 
         ArrayList<String> symptome = new ArrayList<>();
 
-
         for (int i = 0; i < listSymptome.size(); i++) {
         String symp = listSymptome.get(i).get(1);
         symptome.add(symp);
         }
 
-
+        boxLeft.getChildren().remove(choiceBox);
         choiceBox = new ComboBox(FXCollections.observableArrayList(symptome));
 
 
@@ -463,6 +470,14 @@ public class ViewPrincipale {
         choiceBox.setTranslateY(70);
         choiceBox.setPrefWidth(200);
 
+    }
+
+    public void initScrollPane(){
+        scrollPane = new ScrollPane();
+        scrollPane.setPrefHeight(750);
+        scrollPane.setPrefWidth(250);
+        scrollPane.setTranslateY(75);
+        scrollPane.setLayoutX(20);
     }
 
     void setVueCompleteMenu() {
