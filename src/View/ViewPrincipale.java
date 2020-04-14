@@ -1,6 +1,7 @@
 package View;
 
 import Controller.ControllerMenu;
+import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Bounds;
@@ -13,6 +14,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Screen;
 import Sample.BDDManager;
+import javafx.util.Duration;
 
 
 public class ViewPrincipale {
@@ -91,6 +93,19 @@ public class ViewPrincipale {
         corps.setFitHeight(heightBody);
         corps.setPreserveRatio(true);
 
+        FadeTransition fadeIn = new FadeTransition();
+        fadeIn.setDuration(Duration.millis(500));
+        fadeIn.setFromValue(0);
+        fadeIn.setToValue(0.2);
+        fadeIn.setCycleCount(1);
+        fadeIn.setAutoReverse(false);
+
+        FadeTransition fadeOut = new FadeTransition();
+        fadeOut.setDuration(Duration.millis(500));
+        fadeOut.setFromValue(0.2);
+        fadeOut.setToValue(0);
+        fadeOut.setCycleCount(1);
+        fadeOut.setAutoReverse(false);
 
         btnTete = new Button();// Création d'un bouton
 
@@ -104,9 +119,20 @@ public class ViewPrincipale {
         btnTete.setLayoutY(posY);
         btnTete.setPrefWidth(width);
         btnTete.setPrefHeight(height);
-        btnTete.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
+        btnTete.setBackground(new Background(new BackgroundFill(Color.RED, new CornerRadii(90), Insets.EMPTY)));
         btnTete.getStyleClass().add("btnCorps");
         btnTete.setOpacity(0);
+
+        btnTete.setOnMouseEntered(e -> {
+            fadeIn.setNode(btnTete);
+            fadeIn.play();
+        });
+
+        btnTete.setOnMouseExited(e -> {
+            fadeIn.stop();
+            fadeOut.setNode(btnTete);
+            fadeOut.play();
+        });
 
 //.................................................................
 
@@ -122,9 +148,20 @@ public class ViewPrincipale {
         btnTorse.setLayoutY(posY);
         btnTorse.setPrefWidth(width);
         btnTorse.setPrefHeight(height);
-        btnTorse.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
+        btnTorse.setBackground(new Background(new BackgroundFill(Color.GREEN, new CornerRadii(90), Insets.EMPTY)));
         btnTorse.getStyleClass().add("btnCorps");
         btnTorse.setOpacity(0);
+
+        btnTorse.setOnMouseEntered(e -> {
+            fadeIn.setNode(btnTorse);
+            fadeIn.play();
+        });
+
+        btnTorse.setOnMouseExited(e -> {
+            fadeIn.stop();
+            fadeOut.setNode(btnTorse);
+            fadeOut.play();
+        });
 
         //.................................................................
 
@@ -140,9 +177,20 @@ public class ViewPrincipale {
         btnVentre.setLayoutY(posY);
         btnVentre.setPrefWidth(width);
         btnVentre.setPrefHeight(height);
-        btnVentre.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
+        btnVentre.setBackground(new Background(new BackgroundFill(Color.BLUE, new CornerRadii(90), Insets.EMPTY)));
         btnVentre.getStyleClass().add("btnCorps");
         btnVentre.setOpacity(0);
+
+        btnVentre.setOnMouseEntered(e -> {
+            fadeIn.setNode(btnVentre);
+            fadeIn.play();
+        });
+
+        btnVentre.setOnMouseExited(e -> {
+            fadeIn.stop();
+            fadeOut.setNode(btnVentre);
+            fadeOut.play();
+        });
 
         //.................................................................
 
@@ -158,9 +206,20 @@ public class ViewPrincipale {
         btnMain.setLayoutY(posY);
         btnMain.setPrefWidth(width);
         btnMain.setPrefHeight(height);
-        btnMain.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
+        btnMain.setBackground(new Background(new BackgroundFill(Color.YELLOW, new CornerRadii(90), Insets.EMPTY)));
         btnMain.getStyleClass().add("btnCorps");
         btnMain.setOpacity(0);
+
+        btnMain.setOnMouseEntered(e -> {
+            fadeIn.setNode(btnMain);
+            fadeIn.play();
+        });
+
+        btnMain.setOnMouseExited(e -> {
+            fadeIn.stop();
+            fadeOut.setNode(btnMain);
+            fadeOut.play();
+        });
 
         //.................................................................
 
@@ -180,23 +239,45 @@ public class ViewPrincipale {
         btnCoude.getStyleClass().add("btnCorps");
         btnCoude.setOpacity(0);
 
+        btnCoude.setOnMouseEntered(e -> {
+            fadeIn.setNode(btnCoude);
+            fadeIn.play();
+        });
+
+        btnCoude.setOnMouseExited(e -> {
+            fadeIn.stop();
+            fadeOut.setNode(btnCoude);
+            fadeOut.play();
+        });
+
         //.................................................................
 
-        btnNuque = new Button();// Création d'un bouton
-
-        posX = (primaryScreenBounds.getWidth() * 56.2) / 100;
-        posY = (primaryScreenBounds.getHeight() * 24) / 100;
-        height = (primaryScreenBounds.getHeight() * 6) / 100;
-        width = height;
-
-
-        btnNuque.setLayoutX(posX);
-        btnNuque.setLayoutY(posY);
-        btnNuque.setPrefWidth(width);
-        btnNuque.setPrefHeight(height);
-        btnNuque.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
-        btnNuque.getStyleClass().add("btnCorps");
-        btnNuque.setOpacity(0);
+//        btnNuque = new Button();// Création d'un bouton
+//
+//        posX = (primaryScreenBounds.getWidth() * 56.2) / 100;
+//        posY = (primaryScreenBounds.getHeight() * 24) / 100;
+//        height = (primaryScreenBounds.getHeight() * 6) / 100;
+//        width = height;
+//
+//
+//        btnNuque.setLayoutX(posX);
+//        btnNuque.setLayoutY(posY);
+//        btnNuque.setPrefWidth(width);
+//        btnNuque.setPrefHeight(height);
+//        btnNuque.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
+//        btnNuque.getStyleClass().add("btnCorps");
+//        btnNuque.setOpacity(0);
+//
+//        btnNuque.setOnMouseEntered(e -> {
+//            fadeIn.setNode(btnNuque);
+//            fadeIn.play();
+//        });
+//
+//        btnNuque.setOnMouseExited(e -> {
+//            fadeIn.stop();
+//            fadeOut.setNode(btnNuque);
+//            fadeOut.play();
+//        });
 
         //.................................................................
 
@@ -212,9 +293,20 @@ public class ViewPrincipale {
         btnSex.setLayoutY(posY);
         btnSex.setPrefWidth(width);
         btnSex.setPrefHeight(height);
-        btnSex.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
+        btnSex.setBackground(new Background(new BackgroundFill(Color.PINK, new CornerRadii(90), Insets.EMPTY)));
         btnSex.getStyleClass().add("btnCorps");
         btnSex.setOpacity(0);
+
+        btnSex.setOnMouseEntered(e -> {
+            fadeIn.setNode(btnSex);
+            fadeIn.play();
+        });
+
+        btnSex.setOnMouseExited(e -> {
+            fadeIn.stop();
+            fadeOut.setNode(btnSex);
+            fadeOut.play();
+        });
 
         //.................................................................
 
@@ -234,6 +326,17 @@ public class ViewPrincipale {
         btnPied.getStyleClass().add("btnCorps");
         btnPied.setOpacity(0);
 
+        btnPied.setOnMouseEntered(e -> {
+            fadeIn.setNode(btnPied);
+            fadeIn.play();
+        });
+
+        btnPied.setOnMouseExited(e -> {
+            fadeIn.stop();
+            fadeOut.setNode(btnPied);
+            fadeOut.play();
+        });
+
         //.................................................................
 
         btnPeau = new Button();// Création d'un bouton
@@ -251,6 +354,17 @@ public class ViewPrincipale {
         btnPeau.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
         btnPeau.getStyleClass().add("btnCorps");
         btnPeau.setOpacity(0);
+
+        btnPeau.setOnMouseEntered(e -> {
+            fadeIn.setNode(btnPeau);
+            fadeIn.play();
+        });
+
+        btnPeau.setOnMouseExited(e -> {
+            fadeIn.stop();
+            fadeOut.setNode(btnPeau);
+            fadeOut.play();
+        });
 
     }
 
@@ -329,7 +443,7 @@ public class ViewPrincipale {
         root.getChildren().add(btnVentre);
         root.getChildren().add(btnMain);
         root.getChildren().add(btnCoude);
-        root.getChildren().add(btnNuque);
+        //root.getChildren().add(btnNuque);
         root.getChildren().add(btnSex);
         root.getChildren().add(btnPied);
         root.getChildren().add(btnPeau);
@@ -341,6 +455,16 @@ public class ViewPrincipale {
     void setEvents(ControllerMenu mc) {
         btnPageAdmin.setOnMouseClicked(mc);
         btnQuitter.setOnMouseClicked(mc);
+        btnTete.setOnMouseClicked(mc);
+        //btnNuque.setOnMouseClicked(mc);
+        btnTorse.setOnMouseClicked(mc);
+        btnVentre.setOnMouseClicked(mc);
+        btnSex.setOnMouseClicked(mc);
+        btnCoude.setOnMouseClicked(mc);
+        btnMain.setOnMouseClicked(mc);
+        btnPeau.setOnMouseClicked(mc);
+        btnPied.setOnMouseClicked(mc);
+
     }
 
     public Button getQuitter() {

@@ -14,7 +14,3 @@
     -fx-background-color: linear-gradient(to right, #071d58 0%, #6374a2 51%, #071d58 100%);
     -fx-cursor: hand;
 }
-
-.btnCorps:hover {
--fx-opacity:0.5;
-}
