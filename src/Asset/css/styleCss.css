@@ -1,13 +1,13 @@
 .btnMenu {
     -fx-background-color: linear-gradient(to right, #d4d4d4 0%, #fcfcfc 51%, #d4d4d4 100%);
-    -fx-pref-width: 150px;
+    -fx-pref-width: 100px;
     -fx-pref-height: 30px;
     -fx-font-family: "Tahoma, Geneva, sans-serif";
     -fx-background-radius: 9;
     -fx-text-fill: grey;
     -fx-border-color: grey;
     -fx-border-radius: 8;
-    -fx-border-width: 2;
+    -fx-border-width: 1;
     -fx-font-size: 15;
 }
 

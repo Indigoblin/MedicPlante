@@ -8,7 +8,7 @@ import java.io.*;
  */
 
 public class BDDManager {
-    private final String BDD_URL = "jdbc:mysql://localhost:3306";
+    private final String BDD_URL = "jdbc:mysql://localhost:3306/bdd_medicplant";
     private final String BDD_USER = "root";
     private final String BDD_PASSWORD =  "";
     private Connection connection;
