@@ -1,16 +1,17 @@
 .btnMenu {
-    -fx-background-color: linear-gradient(to right, #6374a2 0%, #071d58 51%, #6374a2 100%);
-    -fx-pref-width: 200px;
-    -fx-pref-height: 50px;
-    -fx-font-family: "Arial Black";
-    -fx-background-radius: 8;
-    -fx-text-fill: white;
-    -fx-border-color: black;
+    -fx-background-color: linear-gradient(to right, #d4d4d4 0%, #fcfcfc 51%, #d4d4d4 100%);
+    -fx-pref-width: 150px;
+    -fx-pref-height: 30px;
+    -fx-font-family: "Tahoma, Geneva, sans-serif";
+    -fx-background-radius: 9;
+    -fx-text-fill: grey;
+    -fx-border-color: grey;
     -fx-border-radius: 8;
     -fx-border-width: 2;
+    -fx-font-size: 15;
 }
 
 .btnMenu:hover {
-    -fx-background-color: linear-gradient(to right, #071d58 0%, #6374a2 51%, #071d58 100%);
+    -fx-background-color: linear-gradient(to right, #fcfcfc 0%, #d4d4d4 51%, #fcfcfc 100%);
     -fx-cursor: hand;
 }
