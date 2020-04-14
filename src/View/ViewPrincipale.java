@@ -1,11 +1,13 @@
 package View;
 
 import Controller.ControllerMenu;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.geometry.Bounds;
 import javafx.geometry.Insets;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
-import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -26,6 +28,7 @@ public class ViewPrincipale {
     private ImageView corps;
     private VBox boxLeft;
     private Button btnTete, btnTorse, btnVentre, btnMain, btnCoude, btnNuque, btnSex, btnPied, btnPeau;
+    private ChoiceBox<String> choiceBox;
 
 
     ViewPrincipale(Menu model, Group root) {
@@ -102,7 +105,7 @@ public class ViewPrincipale {
         btnTete.setPrefHeight(height);
         btnTete.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
         btnTete.getStyleClass().add("btnCorps");
-        btnTete.setOpacity(0.5);
+        btnTete.setOpacity(0);
 
 //.................................................................
 
@@ -120,7 +123,7 @@ public class ViewPrincipale {
         btnTorse.setPrefHeight(height);
         btnTorse.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
         btnTorse.getStyleClass().add("btnCorps");
-        btnTorse.setOpacity(0.5);
+        btnTorse.setOpacity(0);
 
         //.................................................................
 
@@ -138,7 +141,7 @@ public class ViewPrincipale {
         btnVentre.setPrefHeight(height);
         btnVentre.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
         btnVentre.getStyleClass().add("btnCorps");
-        btnVentre.setOpacity(0.5);
+        btnVentre.setOpacity(0);
 
         //.................................................................
 
@@ -156,7 +159,7 @@ public class ViewPrincipale {
         btnMain.setPrefHeight(height);
         btnMain.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
         btnMain.getStyleClass().add("btnCorps");
-        btnMain.setOpacity(0.5);
+        btnMain.setOpacity(0);
 
         //.................................................................
 
@@ -174,7 +177,7 @@ public class ViewPrincipale {
         btnCoude.setPrefHeight(height);
         btnCoude.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
         btnCoude.getStyleClass().add("btnCorps");
-        btnCoude.setOpacity(0.5);
+        btnCoude.setOpacity(0);
 
         //.................................................................
 
@@ -192,7 +195,7 @@ public class ViewPrincipale {
         btnNuque.setPrefHeight(height);
         btnNuque.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
         btnNuque.getStyleClass().add("btnCorps");
-        btnNuque.setOpacity(0.5);
+        btnNuque.setOpacity(0);
 
         //.................................................................
 
@@ -210,7 +213,7 @@ public class ViewPrincipale {
         btnSex.setPrefHeight(height);
         btnSex.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
         btnSex.getStyleClass().add("btnCorps");
-        btnSex.setOpacity(0.5);
+        btnSex.setOpacity(0);
 
         //.................................................................
 
@@ -228,7 +231,7 @@ public class ViewPrincipale {
         btnPied.setPrefHeight(height);
         btnPied.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
         btnPied.getStyleClass().add("btnCorps");
-        btnPied.setOpacity(0.5);
+        btnPied.setOpacity(0);
 
         //.................................................................
 
@@ -246,7 +249,7 @@ public class ViewPrincipale {
         btnPeau.setPrefHeight(height);
         btnPeau.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(90), Insets.EMPTY)));
         btnPeau.getStyleClass().add("btnCorps");
-        btnPeau.setOpacity(0.5);
+        btnPeau.setOpacity(0);
 
     }
 
@@ -265,7 +268,46 @@ public class ViewPrincipale {
 
         initLogo();
 
+        initChoiceBox();
+
+
         boxLeft.getChildren().add(Logo);
+        boxLeft.getChildren().add(choiceBox);
+
+    }
+
+    private void initChoiceBox() {
+
+        //  choiceboxSymptome = new TextField("");
+        // choiceboxSymptome.setMinWidth(120);
+
+        String note1 = "1";
+        String note2 = "2";
+        String note3 = "3";
+        String note4 = "4";
+        String note5 = "5";
+
+
+        Label label = new Label("Note du film :");
+
+        ObservableList<String> listeNote //
+                = FXCollections.observableArrayList(note1, note2, note3, note4, note5);
+
+        choiceBox = new ChoiceBox<String>(listeNote);
+
+
+        Bounds bounds = choiceBox.getLayoutBounds();
+
+        double posX = (bounds.getWidth() * 54.4) / 100;
+        double posY = (bounds.getHeight() * 15) / 100;
+        double height = (bounds.getHeight() * 12) / 100;
+        double width = (bounds.getWidth() * 40) / 100;
+
+
+        choiceBox.setTranslateX(posX);
+        choiceBox.setTranslateX(posY);
+        choiceBox.setPrefWidth(width);
+
     }
 
     void setVueCompleteMenu() {
@@ -283,11 +325,6 @@ public class ViewPrincipale {
         root.getChildren().add(btnSex);
         root.getChildren().add(btnPied);
         root.getChildren().add(btnPeau);
-
-
-
-
-
 
 
         root.getChildren().add(boxLeft);
