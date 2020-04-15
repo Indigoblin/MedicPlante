@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Plante;
 import Sample.BDDManager;
 import View.ViewHandler;
 import javafx.event.EventHandler;
@@ -40,16 +41,14 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
 
 
         Button btnCoude = launcher.getVp().getBtnCoude();
-      //  Button btnNuque = launcher.getVp().getBtnNuque();
+        //  Button btnNuque = launcher.getVp().getBtnNuque();
         Button btnTete = launcher.getVp().getBtnTete();
-        Button btnTorse= launcher.getVp().getBtnTorse();
+        Button btnTorse = launcher.getVp().getBtnTorse();
         Button btnVentre = launcher.getVp().getBtnVentre();
         Button btnSex = launcher.getVp().getBtnSex();
         Button btnMain = launcher.getVp().getBtnMain();
         Button btnPeau = launcher.getVp().getBtnPeau();
         Button btnPied = launcher.getVp().getBtnPied();
-
-
 
 
         if (mouseEvent.getSource().equals(launcher.getVp().getPageAdmin())) {
@@ -65,30 +64,32 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
                 || mouseEvent.getSource().equals(btnPeau) || mouseEvent.getSource().equals(btnPied)) {
 
 
-String partie = null;
-            if (mouseEvent.getSource().equals(btnCoude)){
-                partie="Articulation";
+            String partie = null;
+            if (mouseEvent.getSource().equals(btnCoude)) {
+                partie = "Articulation";
 
-            }else if(mouseEvent.getSource().equals(btnTete)){
-               partie = "Tete";
+            } else if (mouseEvent.getSource().equals(btnTete)) {
+                partie = "Tete";
 
-            }else if(mouseEvent.getSource().equals(btnTorse)){
+            } else if (mouseEvent.getSource().equals(btnTorse)) {
                 partie = "Torax";
 
-            }else if(mouseEvent.getSource().equals(btnVentre)){
+            } else if (mouseEvent.getSource().equals(btnVentre)) {
                 partie = "Ventre";
 
-            }else if(mouseEvent.getSource().equals(btnSex)){
+            } else if (mouseEvent.getSource().equals(btnSex)) {
                 partie = "Sexe";
 
-            }else if(mouseEvent.getSource().equals(btnMain)){
-                 partie = "Mains";
+            } else if (mouseEvent.getSource().equals(btnMain)) {
+                partie = "Mains";
 
-            }else if(mouseEvent.getSource().equals(btnPeau)){
-                 partie = "Peau";
+            } else if (mouseEvent.getSource().equals(btnPeau)) {
+                partie = "Peau";
             }
 
-            ArrayList<ArrayList<String>>ListSymptome= bdd.ask("SELECT idSymptome, nomSymptome FROM bdd_medicplant.symptome WHERE id_Corps = (SELECT idCorps FROM Corps WHERE NomPartie ='"+ partie +"');");
+            ArrayList<ArrayList<String>> ListSymptome = bdd.ask("SELECT idSymptome, nomSymptome FROM bdd_medicplant.symptome WHERE id_Corps = (SELECT idCorps FROM Corps WHERE NomPartie ='" + partie + "');");
+
+            System.out.println(ListSymptome);
 
             launcher.getVp().afficheSelect(ListSymptome);
         }
@@ -103,6 +104,39 @@ String partie = null;
         btnPeau.setOnMouseClicked(mc);
         btnPied.setOnMouseClicked(mc);*/
 
+        if (mouseEvent.getSource().equals(launcher.getVp().getValider())) {
+
+            String symptome = launcher.getVp().getCombobox().getSelectionModel().getSelectedItem();
+           // System.out.println(symptome);
+
+           // System.out.println("SELECT idPlante, Nom, Description, Bienfait, Photo, Posologie, Avertissement FROM bdd_medicplant.plante WHERE id_Symptome = (SELECT idSymptome FROM Symptome WHERE nomSymptome ='" + symptome + "');");
+
+            ArrayList<ArrayList<String>> tabPlante = new ArrayList<>();
+
+            tabPlante = bdd.ask("SELECT idPlante, Nom, Description, Bienfait, Photo, Posologie, Avertissement FROM bdd_medicplant.plante WHERE id_Symptome = (SELECT idSymptome FROM Symptome WHERE nomSymptome ='" + symptome + "');");
+
+
+
+            ArrayList<Plante> arrayListPlante = new ArrayList<>();
+
+            for (int i = 0; i < tabPlante.size(); i++) {
+
+                String titre = tabPlante.get(i).get(1);
+                String description = tabPlante.get(i).get(2);
+                String bienfait = tabPlante.get(i).get(3);
+                String photo = tabPlante.get(i).get(4);
+                String posologie = tabPlante.get(i).get(5);
+                String avertissement = tabPlante.get(i).get(6);
+
+                Plante plante = new Plante(0, titre, bienfait, photo, posologie, description, avertissement);
+
+                arrayListPlante.add(plante);
+            }
+
+            launcher.getVp().setTableauPlante(arrayListPlante);
+            launcher.getVp().initScrollPane();
+
+        }
 
     }
 }
