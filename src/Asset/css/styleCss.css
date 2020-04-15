@@ -20,3 +20,10 @@
 .imgPlante {
 -fx-background-radius: 5;
 }
+
+.txtTitre {
+
+    -fx-font-family: "Tahoma, Geneva, sans-serif";
+     -fx-font-size: 25;
+
+}
