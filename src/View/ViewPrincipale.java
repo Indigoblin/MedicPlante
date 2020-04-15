@@ -37,6 +37,7 @@ public class ViewPrincipale {
     private Button Valider;
     private ScrollPane scrollPane;
     private ArrayList<Plante> tableauPlante;
+    private Label labelTitre;
 
 
     ViewPrincipale(Menu model, Group root) {
@@ -44,6 +45,7 @@ public class ViewPrincipale {
         this.root = root;
         this.model = model;
         primaryScreenBounds = Screen.getPrimary().getBounds();
+        initTextTitre();
         initBackground();
         initCorps();
         initBoxLeft();
@@ -379,6 +381,20 @@ public class ViewPrincipale {
 
     }
 
+    private void initTextTitre(){
+        labelTitre = new Label("Veuillez selectionner une partie du corps :");
+        labelTitre.setTranslateX(600);
+        labelTitre.setTranslateY(60);
+        labelTitre.setMinWidth(100);
+        labelTitre.setMaxHeight(100);
+        labelTitre.setTextFill(Color.WHITE);
+
+        labelTitre.getStyleClass().add("txtTitre");
+
+
+
+    }
+
     private void initBoxLeft() {
         boxLeft = new VBox();
 
@@ -398,8 +414,8 @@ public class ViewPrincipale {
                 BackgroundSize.DEFAULT)));
 */
         labelChoice = new Label("Veuillez selectionner une partie du corps :");
-        labelChoice.setTranslateX(620);
-        labelChoice.setTranslateY(-60);
+        labelChoice.setTranslateX(0);
+        labelChoice.setTranslateY(0);
         labelChoice.setMinWidth(100);
         labelChoice.setMaxHeight(30);
         labelChoice.setTextFill(Color.WHITE);
@@ -452,6 +468,8 @@ public class ViewPrincipale {
 
 
     private void initChoiceBox(ArrayList<ArrayList<String>> listSymptome) {
+
+        root.getChildren().remove(labelTitre);
 
         ArrayList<String> symptome = new ArrayList<>();
 
@@ -537,7 +555,9 @@ public class ViewPrincipale {
 
     void setVueCompleteMenu() {
         root.getChildren().clear();
+
         root.getChildren().add(imgBG);
+        root.getChildren().add(labelTitre);
         root.getChildren().add(btnPageAdmin);
         root.getChildren().add(btnQuitter);
         root.getChildren().add(corps);
