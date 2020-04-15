@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+
 public class ViewHandler extends Application {
 
     private Stage primaryStage;
@@ -16,6 +18,7 @@ public class ViewHandler extends Application {
     private ControllerMenu controllerMenu;
     private ViewAdmin controllePageAdmin;
     private Group root;
+    private ArrayList tableauPlante;
 
     /**
      * Permet le lancement de l'application : méthode obligatoire pour JavaFX
@@ -29,6 +32,7 @@ public class ViewHandler extends Application {
         this.primaryStage = primaryStage;
 
 
+
         root = new Group();
         Scene scene = new Scene(root);
         scene.getStylesheets().add("Asset/css/styleCss.css");
@@ -40,6 +44,8 @@ public class ViewHandler extends Application {
         controllerMenu = new ControllerMenu(this, model);
 
         // Affichage du menu
+
+
 
         primaryStage.setTitle("Médic Plante");
         primaryStage.setFullScreenExitHint("");
@@ -73,5 +79,6 @@ public class ViewHandler extends Application {
     public void setVueCompletePageAdmin() {
         vpa.setVueCompletePageAdmin();
     }
+
 
 }

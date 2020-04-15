@@ -1,6 +1,7 @@
 package View;
 
 import Controller.ControllerMenu;
+import Model.Plante;
 import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
@@ -35,6 +36,7 @@ public class ViewPrincipale {
     private Label labelChoice;
     private Button Valider;
     private ScrollPane scrollPane;
+    private ArrayList<Plante> tableauPlante;
 
 
     ViewPrincipale(Menu model, Group root) {
@@ -45,6 +47,7 @@ public class ViewPrincipale {
         initBackground();
         initCorps();
         initBoxLeft();
+        tableauPlante = new ArrayList();
 
 
         // RÃ©cupÃ©ration de la taille de l'Ã©cran
@@ -394,17 +397,19 @@ public class ViewPrincipale {
                 BackgroundPosition.CENTER,
                 BackgroundSize.DEFAULT)));
 */
-        labelChoice = new Label("Veuillez selectionner \n une partie du corps ->");
-        labelChoice.setTranslateX(20);
-        labelChoice.setTranslateY(40);
+        labelChoice = new Label("Veuillez selectionner une partie du corps :");
+        labelChoice.setTranslateX(620);
+        labelChoice.setTranslateY(-60);
         labelChoice.setMinWidth(100);
+        labelChoice.setMaxHeight(30);
+        labelChoice.setTextFill(Color.WHITE);
 
         final double MAX_FONT_SIZE = 25; // define max font size you need
         labelChoice.setFont(new Font(MAX_FONT_SIZE));
 
         initLogo();
 
-        initScrollPane();
+      //  initScrollPane();
 
 
 
@@ -434,9 +439,12 @@ public class ViewPrincipale {
 
         boxLeft.getChildren().add(choiceBox);
         boxLeft.getChildren().add(Valider);
-        boxLeft.getChildren().add(scrollPane);
 
         labelChoice.setText("Veuillez cocher vos symptômes :");
+        labelChoice.setTranslateX(20);
+        labelChoice.setTranslateY(40);
+        labelChoice.setTextFill(Color.BLACK);
+
 
 
     }
@@ -473,11 +481,58 @@ public class ViewPrincipale {
     }
 
     public void initScrollPane(){
+        boxLeft.getChildren().remove(scrollPane);
         scrollPane = new ScrollPane();
         scrollPane.setPrefHeight(750);
         scrollPane.setPrefWidth(250);
         scrollPane.setTranslateY(75);
         scrollPane.setLayoutX(20);
+
+        VBox vboxListe = new VBox();
+        vboxListe.setSpacing(30);
+
+
+        System.out.println(tableauPlante);
+        for (int i = 0; i < tableauPlante.size() ; i++) {
+            BoxPlante boxPlante = new BoxPlante(tableauPlante.get(i));
+
+            HBox boxPlantee = boxPlante.getHboxContainer();
+
+            vboxListe.getChildren().add(boxPlantee);
+        }
+        System.out.println(vboxListe.getChildren().size());
+
+        scrollPane.setContent(vboxListe);
+        boxLeft.getChildren().add(scrollPane);
+
+//        tableauPlante.clear();
+
+
+//        for (int i=0; i<tableauPlante.size(); i++){
+
+/*
+        tableauPlante
+
+
+            initNomFilm(tabListFilm.get(i).get(1));
+            initAnneeFilm(tabListFilm.get(i).get(2));
+            initResumeFilm(tabListFilm.get(i).get(3));
+            initNoteFilm(tabListFilm.get(i).get(4));
+
+            initRealisateurFilm(tabListFilm.get(i).get(6));
+            initNationalite(tabListFilm.get(i).get(7));
+
+            HBox hbox = initBoxFilm(tabListFilm.get(i).get(5), tabgenreString);
+
+            vboxListe.getChildren().add(hbox);
+*/
+     //   }
+
+    /*    scrollPane.setContent(null);
+
+        scrollPane.setContent(vboxListe);
+*/
+
     }
 
     void setVueCompleteMenu() {
@@ -512,6 +567,7 @@ public class ViewPrincipale {
         btnMain.setOnMouseClicked(mc);
         btnPeau.setOnMouseClicked(mc);
         btnPied.setOnMouseClicked(mc);
+        Valider.setOnMouseClicked(mc);
 
     }
 
@@ -557,5 +613,18 @@ public class ViewPrincipale {
 
     public Button getBtnPeau() {
         return btnPeau;
+    }
+
+    public Button getValider() {
+        return Valider;
+    }
+
+    public void setTableauPlante(ArrayList tableauPlanteCT) {
+        tableauPlante = tableauPlanteCT;
+
+    }
+
+    public ComboBox<String> getCombobox() {
+        return  choiceBox;
     }
 }
